@@ -2,17 +2,17 @@
 
 #include "iter.hpp"
 
-class Awesome
+class SampleItem
 {
 public:
-	Awesome(void) : _n(42) {}
+	SampleItem(void) : _n(42) {}
 	int get(void) const { return this->_n; }
 
 private:
 	int _n;
 };
 
-std::ostream &operator<<(std::ostream &o, Awesome const &rhs)
+std::ostream &operator<<(std::ostream &o, SampleItem const &rhs)
 {
 	o << rhs.get();
 	return o;
@@ -32,10 +32,10 @@ void increment(int &value)
 int main(void)
 {
 	int tab[] = {0, 1, 2, 3, 4};
-	Awesome tab2[5];
+	SampleItem tab2[5];
 
 	::iter(tab, 5, print<int>);
-	::iter(tab2, 5, print<Awesome>);
+	::iter(tab2, 5, print<SampleItem>);
 
 	::iter(tab, 5, increment);
 	std::cout << "---" << std::endl;
